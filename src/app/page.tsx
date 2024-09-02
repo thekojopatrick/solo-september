@@ -11,7 +11,7 @@ import { DayCard, SocialButtonIcon } from '@/components/ui';
 export default function Home() {
 	return (
 		<main className='min-h-screen p-6 sm:p-24 border border-red-200 flex justify-center '>
-			<section className='container max-w-screen-lg w-full flex gap-8 flex-col'>
+			<section className='container max-w-screen-lg w-full flex gap-5 flex-col'>
 				{/*Start of Top Section*/}
 				<div className='flex flex-col lg:flex-row gap-5'>
 					<div className='max-w-lg flex flex-col gap-8'>
@@ -59,18 +59,21 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-
-					<div className=' grid gap-4 grid-cols-2'>
-						<DayCard label='1' />
+					<li className=' grid gap-5 grid-cols-2 w-full'>
+						<DayCard label='1' status='Done' />
 						<DayCard label='2' />
 						<DayCard label='3' />
 						<DayCard label='4' />
-					</div>
+					</li>
 				</div>
 				{/* End of Top Section*/}
 
 				{/* Start of Bottom Section*/}
-				<div className='mb-32 min-h-40 col-span-full h-full grid text-center lg:mb-0 lg:w-full lg:grid-cols-4 lg:text-left'></div>
+				<li className='min-h-40 col-span-full h-full grid text-center grid-cols-2 lg:mb-0 lg:w-full lg:grid-cols-4 lg:text-left gap-5'>
+					{Array.from({ length: 16 }, (v, i) => (
+						<DayCard key={i} label={`${i + 5}`} />
+					))}
+				</li>
 				{/* End of Bottom Section*/}
 			</section>
 		</main>
