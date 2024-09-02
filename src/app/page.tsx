@@ -7,6 +7,8 @@ import {
 	XIcon,
 } from '@/components/icons';
 
+import { SocialButtonIcon } from '@/components/ui';
+
 export default function Home() {
 	return (
 		<main className='min-h-screen p-6 sm:p-24 border border-red-200 flex justify-center '>
@@ -27,12 +29,28 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='flex flex-row gap-3 items-center mt-8'>
-							<BehanceIcon />
-							<DribbleIcon />
-							<GithubIcon />
-							<InstagramIcon />
-							<XIcon />
-							<LinkedInIcon />
+							<SocialButtonIcon
+								href='/'
+								icon={<BehanceIcon />}
+								label='Behance'
+							/>
+							<SocialButtonIcon
+								href='/'
+								icon={<DribbleIcon />}
+								label='Dribbble'
+							/>
+							<SocialButtonIcon
+								href='/'
+								icon={<InstagramIcon />}
+								label='Instagram'
+							/>
+							<SocialButtonIcon href='/' icon={<GithubIcon />} label='Github' />
+							<SocialButtonIcon href='/' icon={<XIcon />} label='X' />
+							<SocialButtonIcon
+								href='/'
+								icon={<LinkedInIcon />}
+								label='LinkedIn'
+							/>
 						</div>
 					</div>
 				</div>
