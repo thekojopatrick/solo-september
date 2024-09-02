@@ -4,3 +4,4 @@ export { default as XIcon } from './twitter';
 export { default as LinkedInIcon } from './linkedIn';
 export { default as BehanceIcon } from './behance';
 export { default as DribbleIcon } from './dribbble';
+export { default as ArrrowUpRight } from './arrrowUpRight';
