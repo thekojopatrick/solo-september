@@ -1,12 +1,13 @@
 'use client';
 
-import { CloseIcon } from '@/components/icons';
+import { ArrrowUpRight, CloseIcon, GithubIcon } from '@/components/icons';
+
 import React from 'react';
+import { SocialButtonIcon } from '@/components/ui';
 import { slideInOut } from '@/components/animations';
 import { useTransitionRouter } from 'next-view-transitions';
 
 const Page = ({ params }: { params: { id: string } }) => {
-	//const router = useRouter();
 	const router = useTransitionRouter();
 
 	return (
@@ -24,7 +25,30 @@ const Page = ({ params }: { params: { id: string } }) => {
 				>
 					<CloseIcon />
 				</button>
-				<div className='flex'>/Ep0{params.id}</div>
+				<div className='flex w-full'>
+					<div className='flex justify-between w-full'>
+						<div className='title'>
+							<span>/Ep0{params.id}</span>
+							<h1 className='text-3xl font-serif'>Solo September</h1>
+						</div>
+						<div className='actions flex items-center gap-2'>
+							<SocialButtonIcon href='/' icon={<GithubIcon />} />
+							<button
+								onClick={(e) => {
+									e.preventDefault();
+									router.push(`/projects/${params.id}/demo`, {
+										// Optional custom transition
+										onTransitionReady: slideInOut,
+									});
+								}}
+								className={`border border-gray-300 rounded-full px-4 py-2 text-md text-right items-center flex gap-2`}
+							>
+								View demo
+								<ArrrowUpRight size='20' />
+							</button>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
 	);
