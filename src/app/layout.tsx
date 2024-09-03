@@ -2,6 +2,7 @@ import './globals.css';
 
 import { Instrument_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
 
 const instrument_Sans = Instrument_Sans({ subsets: ['latin'] });
 
@@ -16,8 +17,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={instrument_Sans.className}>{children}</body>
-		</html>
+		<ViewTransitions>
+			<html lang='en'>
+				<body className={instrument_Sans.className}>{children}</body>
+			</html>
+		</ViewTransitions>
 	);
 }
