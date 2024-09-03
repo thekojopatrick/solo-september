@@ -1,7 +1,10 @@
+'use client';
+
 import { ArrrowUpRight } from '@/components/icons';
-import { Link } from 'next-view-transitions';
 import NextLink from 'next/link';
 import React from 'react';
+import { slideUpOut } from '@/components/animations';
+import { useTransitionRouter } from 'next-view-transitions';
 
 interface DayCardProps {
 	label: string;
@@ -26,11 +29,18 @@ export const DayCard: React.FC<DayCardProps> = ({
 	href,
 	props,
 }) => {
+	const router = useTransitionRouter();
 	return (
-		<Link
+		<a
 			href={`${href}`}
 			className='p-2 border border-gray-200 bg-gradient-to-tr group/edit from-neutral-500/10 to-white hover:from-inherit max-h-[150px]  min-h-[127px] max-w-[250px] flex flex-col rounded-2xl cursor-pointer'
-			{...props}
+			onClick={(e) => {
+				e.preventDefault();
+				router.push(href as string, {
+					// Optional custom transition
+					onTransitionReady: slideUpOut,
+				});
+			}}
 		>
 			<span
 				className={`border border-gray-300 rounded-full px-4 py-1 text-xs text-right self-end flex gap-2 invisible group-hover/edit:visible`}
@@ -42,6 +52,6 @@ export const DayCard: React.FC<DayCardProps> = ({
 				{label}
 			</span>
 			<StatusComp status={status || 'Not yet'} />
-		</Link>
+		</a>
 	);
 };

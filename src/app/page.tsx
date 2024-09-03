@@ -62,8 +62,8 @@ export default function Home() {
 					<li className=' grid gap-5 grid-cols-2 w-full'>
 						<DayCard label='1' status='Done' href='/projects/1' />
 						<DayCard label='2' href='/projects/2' />
-						<DayCard label='3' />
-						<DayCard label='4' />
+						<DayCard label='3' href='/projects/3' />
+						<DayCard label='4' href='/projects/4' />
 					</li>
 				</div>
 				{/* End of Top Section*/}
@@ -71,7 +71,7 @@ export default function Home() {
 				{/* Start of Bottom Section*/}
 				<li className='min-h-40 col-span-full h-full grid text-center grid-cols-2 lg:mb-0 lg:w-full lg:grid-cols-4 lg:text-left gap-5'>
 					{Array.from({ length: 16 }, (v, i) => (
-						<DayCard key={i} label={`${i + 5}`} />
+						<DayCard key={i} label={`${i + 5}`} href={`/projects/${i + 5}`} />
 					))}
 				</li>
 				{/* End of Bottom Section*/}

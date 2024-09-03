@@ -2,7 +2,7 @@
 
 import { CloseIcon } from '@/components/icons';
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { slideInOut } from '@/components/animations';
 import { useTransitionRouter } from 'next-view-transitions';
 
 const Page = ({ params }: { params: { id: string } }) => {
@@ -16,7 +16,10 @@ const Page = ({ params }: { params: { id: string } }) => {
 					className='text-right'
 					onClick={(e) => {
 						e.preventDefault();
-						router.back();
+						router.push('/', {
+							// Optional custom transition
+							onTransitionReady: slideInOut,
+						});
 					}}
 				>
 					<CloseIcon />
