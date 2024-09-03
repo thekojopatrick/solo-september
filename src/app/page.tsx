@@ -10,7 +10,7 @@ import { DayCard, SocialButtonIcon } from '@/components/ui';
 
 export default function Home() {
 	return (
-		<main className='min-h-screen p-6 sm:p-24 border border-red-200 flex justify-center '>
+		<main className='min-h-screen p-6 sm:p-24  flex justify-center '>
 			<section className='container max-w-screen-lg w-full flex gap-5 flex-col'>
 				{/*Start of Top Section*/}
 				<div className='flex flex-col lg:flex-row gap-5'>
@@ -60,8 +60,8 @@ export default function Home() {
 						</div>
 					</div>
 					<li className=' grid gap-5 grid-cols-2 w-full'>
-						<DayCard label='1' status='Done' />
-						<DayCard label='2' />
+						<DayCard label='1' status='Done' href='/projects/1' />
+						<DayCard label='2' href='/projects/2' />
 						<DayCard label='3' />
 						<DayCard label='4' />
 					</li>
